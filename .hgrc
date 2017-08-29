@@ -1,0 +1,23 @@
+# example config (see "hg help config" for more info)
+
+[ui]
+# name and email, e.g.
+# username = Jane Doe <jdoe@example.com>
+#username =
+
+[extensions]
+# uncomment these lines to enable some popular extensions
+# (see "hg help extensions" for more info)
+pager =
+# progress =
+# color =
+mq =
+shelve = 
+hgext.mq =
+hgext.bookmarks =
+color =
+histedit =
+purge = 
+
+[pager]
+pager = less -FRX

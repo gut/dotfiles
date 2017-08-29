@@ -1,0 +1,87 @@
+#[color]
+#  ui = auto
+[user]
+  name = Gustavo Serra Scalet
+#  email = <email>
+#[push]
+#  default = simple
+[diff]
+  tool = vimdiff
+
+[alias]
+  a = add -p
+  br = branch
+  ci = commit
+  ca = commit --amend
+  co = checkout
+  d = diff
+  di = diff
+  dc = diff --cached
+  dw = diff --ignore-space-change
+  drop = stash drop
+  l = log
+  list = stash list
+  peek = show stash@{0}
+  pop = stash pop
+  s = status
+  st = status
+  stow = stash --keep-index
+  sw = show --ignore-space-change
+  sup = "!git stash && git pull --rebase && git stash pop"
+  up = pull --rebase
+  w = whatchanged --pretty=short
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[color]
+  diff = auto
+  branch = auto
+  status = auto
+  interactive = auto
+  ui = auto
+  pager = true
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = blue
+  frag = cyan
+  old = red
+  new = green
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = red
+
+[core]
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore
+
+[advice]
+  statusHints = false
+[apply]
+  whitespace = fix
+[branch]
+  autosetupmerge = true
+[diff]
+  renames = copies
+  mnemonicprefix = true
+[log]
+  date = local
+[merge]
+  stat = true
+  tool = vimdiff
+[push]
+  default = upstream
+[rerere]
+  enabled = true
+
+[include]
+  path = ~/.gitoverride
+[gui]
+  recentrepo = /tmp/repo
+[remote-hg]
+  hg-git-compat = true
