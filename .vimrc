@@ -83,6 +83,12 @@ if has("cscope")
     set csverb
 endif
 
+"size of gvim
+if has("win32")
+    set columns=120
+    set lines=40
+endif
+
 set cscopetag
 "map <C-[> :cs find c <cword><CR>
 map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
@@ -130,7 +136,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlp.vim' => https://github.com/vim-scripts/ctrlp.vim
+Plugin 'vim-scripts/ctrlp.vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
