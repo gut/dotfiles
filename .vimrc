@@ -3,7 +3,7 @@
 let c_space_errors = 1 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 set nocompatible " breaks compatibility with original vi
 set backspace=indent,eol,start " allow backspace in insert mode
-set visualbell    "pisca a tela ao inves de bipar
+set visualbell    " blinks instead of beeping
 set autoindent    " text indenting
 set smartindent   " as above
 if 0 "luajit
@@ -27,6 +27,9 @@ set ruler         " display current line number
 set nobackup      " do NOT make backup files
 set ignorecase    " easy search
 set modeline      " allow footer to tell vim how to configure this file
+set textwidth=80  " wrap text after 80th column$
+set cc=80         " highlight background of 80th column$
+set cino+=(0      " wrap function arguments to align by column of last argument$
 
 " show a list when hitting TAB on normal/command mode
 set wildmode=list:longest
@@ -113,9 +116,6 @@ endif
 
 " alias on command mode:
 command B :buffers
-
-" display a red cell on the 80th column
-"set colorcolumn=80
 
 "
 " Vundle configuration
