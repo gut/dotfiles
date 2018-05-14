@@ -78,6 +78,11 @@ alias hli="hg log --graph --style compact"
 alias hdi="hg diff"
 alias hst="hg summary"
 
+# working faster with google compute platform
+alias gcistart="gcloud compute instances start"
+alias gcistop="gcloud compute instances stop"
+alias gcs="gcloud compute ssh"
+
 green='\033[1;32m'
 blue='\033[1;34m'
 NC='\033[0m'
