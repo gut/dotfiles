@@ -67,7 +67,7 @@
 [branch]
   autosetupmerge = true
 [diff]
-  renames = copies
+  renames = copy
   mnemonicprefix = true
 [log]
   date = local

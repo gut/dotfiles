@@ -7,7 +7,6 @@ set visualbell    " blinks instead of beeping
 set autoindent    " text indenting
 set smartindent   " as above
 "set expandtab     " always turn tabs into spaces. (you might want smarttab)
-"colorscheme blue  " make blue the default colorscheme
 set history=100   " lines of command history
 set showcmd       " show incomplete commands
 set hlsearch      " highlight searched-for phrases
@@ -99,15 +98,7 @@ au! Syntax dasc source $HOME/util/vim-scripts/dasc.vim
 " make .ad files to have the syntax highlights of the C language
 au! BufRead,BufNewFile *.ad     set syntax=c
 
-set background=light
 hi Search cterm=NONE ctermfg=grey ctermbg=blue
-
-if &diff
-    colorscheme blue
-    set cc=
-"else
-"    colorscheme torte
-endif
 
 " alias on command mode:
 command B :buffers
@@ -140,7 +131,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 "python sytax checker
 Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
+"Plugin 'vim-scripts/Pydiction'
+
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'vim-syntastic/syntastic'
 
@@ -162,6 +154,9 @@ call vundle#end()
 filetype plugin indent on    " enables filetype detection
 let g:SimpylFold_docstring_preview = 1
 
+"leave code unfolded by default
+set foldlevel=99
+
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 
@@ -170,7 +165,17 @@ let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "
 call togglebg#map("<F5>")
-"colorscheme zenburn
+if &diff
+    colorscheme blue
+    set cc=
+else
+    syntax enable
+    set background=dark
+    "colorscheme solarized
+    colorscheme torte
+    let g:solarized_termcolors=256
+endif
+
 "set guifont=Monaco:h14
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -200,12 +205,12 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=2
 
 "spaces for indents
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=2
 au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile *.py set softtabstop=4
+au BufRead,BufNewFile *.py set softtabstop=2
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
@@ -216,7 +221,7 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=80
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix

@@ -53,7 +53,7 @@ export GIT_EDITOR=$EDITOR
 BASH_COMPLETION='/etc/bash_completion'
 [ -e $BASH_COMPLETION ] && source $BASH_COMPLETION
 
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:$HOME/bin:$HOME/go/bin"
 #export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-7.5/lib64"
 
 
