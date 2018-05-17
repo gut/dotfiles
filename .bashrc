@@ -30,6 +30,8 @@ alias df="df -h"
 alias du="du -h"
 # pra ter mais cores no tmux
 alias tmux="tmux -2"
+# abrir sessão, se já existente
+alias mytmux='[[ $(tmux list-sessions) ]] && tmux attach || tmux'
 
 
 # avoid hitting backspace and having ^H chars
@@ -92,7 +94,7 @@ export PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] 
 #alias make="make JOBS=10"
 
 # Avoid CTRL+S accidently freezing your shell
-stty -ixon
+#stty -ixon
 
 HISTSIZE=10000
 

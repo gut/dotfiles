@@ -19,6 +19,10 @@ set textwidth=80  " wrap text after 80th column$
 set cc=80         " highlight background of 80th column$
 set cino+=(0      " wrap function arguments to align by column of last argument$
 
+" check one time after 4s of inactivity in normal mode
+set autoread
+au CursorHold * checktime
+
 " show a list when hitting TAB on normal/command mode
 set wildmode=list:longest
 
@@ -211,6 +215,7 @@ au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=2
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=2
 au BufRead,BufNewFile *.py,*.pyw set expandtab
 au BufRead,BufNewFile *.py set softtabstop=2
+au BufRead,BufNewFile *.py set textwidth=79
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
