@@ -85,3 +85,5 @@
   recentrepo = /tmp/repo
 [remote-hg]
   hg-git-compat = true
+[rebase]
+  autoSquash = true

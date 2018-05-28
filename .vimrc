@@ -6,7 +6,9 @@ set backspace=indent,eol,start " allow backspace in insert mode
 set visualbell    " blinks instead of beeping
 set autoindent    " text indenting
 set smartindent   " as above
-"set expandtab     " always turn tabs into spaces. (you might want smarttab)
+set expandtab     " always turn tabs into spaces. (you might want smarttab)
+set sw=4
+set ts=4
 set history=100   " lines of command history
 set showcmd       " show incomplete commands
 set hlsearch      " highlight searched-for phrases
@@ -76,10 +78,8 @@ if has("cscope")
 endif
 
 "size of gvim
-if has("win32")
-    set columns=120
-    set lines=40
-endif
+set columns=160
+set lines=40
 
 set cscopetag
 "map <C-[> :cs find c <cword><CR>
@@ -206,6 +206,11 @@ EOF
 ":set tags=~/mytags "tags for ctags and taglist
 "omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" working with go
+au BufRead,BufNewFile *.go set textwidth=0
+au BufRead,BufNewFile *.go set noexpandtab
+au BufRead,BufNewFile *.go set cc=0
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
