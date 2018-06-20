@@ -153,6 +153,9 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jnurmine/Zenburn'
 
+" :Search
+Plugin 'vim-scripts/MultipleSearch'
+
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -211,6 +214,14 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 au BufRead,BufNewFile *.go set textwidth=0
 au BufRead,BufNewFile *.go set noexpandtab
 au BufRead,BufNewFile *.go set cc=0
+
+" working with json
+au BufRead,BufNewFile *.json set cc=0
+au BufRead,BufNewFile *.json set textwidth=0
+au BufRead,BufNewFile *.json set tabstop=2
+au BufRead,BufNewFile *.json set shiftwidth=2
+au BufRead,BufNewFile *.json set expandtab
+au BufRead,BufNewFile *.json set softtabstop=2
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
