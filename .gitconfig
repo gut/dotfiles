@@ -87,3 +87,5 @@
   hg-git-compat = true
 [rebase]
   autoSquash = true
+[grep]
+  lineNumber = true

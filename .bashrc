@@ -85,6 +85,15 @@ alias gcistart="gcloud compute instances start"
 alias gcistop="gcloud compute instances stop"
 alias gcs="gcloud compute ssh"
 
+# working fast with go and coverage
+function gc() {
+    go test -coverprofile cover.out
+    [ $? -eq 0 ] && go tool cover -html=cover.out -o cover.html
+    [ $? -eq 0 ] && firefox cover.html
+    [ $? -eq 0 ] && sleep 2
+    rm -f cover.out cover.html
+}
+
 green='\033[1;32m'
 blue='\033[1;34m'
 NC='\033[0m'

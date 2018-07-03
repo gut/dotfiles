@@ -156,6 +156,9 @@ Plugin 'jnurmine/Zenburn'
 " :Search
 Plugin 'vim-scripts/MultipleSearch'
 
+" Go
+Plugin 'fatih/vim-go'
+
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
