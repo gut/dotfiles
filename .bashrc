@@ -87,7 +87,7 @@ alias gcs="gcloud compute ssh"
 
 # working fast with go and coverage
 function gc() {
-    go test -coverprofile cover.out
+    go test -coverprofile cover.out $*
     [ $? -eq 0 ] && go tool cover -html=cover.out -o cover.html
     [ $? -eq 0 ] && firefox cover.html
     [ $? -eq 0 ] && sleep 2

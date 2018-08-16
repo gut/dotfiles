@@ -159,6 +159,9 @@ Plugin 'vim-scripts/MultipleSearch'
 " Go
 Plugin 'fatih/vim-go'
 
+" Powershell. urgh
+Plugin 'PProvost/vim-ps1'
+
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
@@ -235,6 +238,7 @@ au BufRead,BufNewFile *.py,*pyw set shiftwidth=2
 au BufRead,BufNewFile *.py,*.pyw set expandtab
 au BufRead,BufNewFile *.py set softtabstop=2
 au BufRead,BufNewFile *.py set textwidth=79
+au BufRead,BufNewFile *.py set cc=79
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
@@ -243,9 +247,6 @@ highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=80
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
