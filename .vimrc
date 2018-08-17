@@ -268,5 +268,5 @@ set backspace=indent,eol,start
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
 "use space to open folds
-nnoremap <space> za
+"nnoremap <space> za " disabled as I false hit this more often than wanting to
 "----------Stop python PEP 8 stuff--------------
