@@ -1,21 +1,9 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
-# Note: PS1 and umask are already set in /etc/profile. You should not
-# need this unless you want different defaults for root.
-# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
-# umask 022
-
-# You may uncomment the following lines if you want `ls' to be colorized:
-# export LS_OPTIONS='--color=auto'
-# eval "`dircolors`"
-# alias ls='ls $LS_OPTIONS'
-# alias ll='ls $LS_OPTIONS -l'
-# alias l='ls $LS_OPTIONS -lA'
-#
-# Some more alias to avoid making mistakes:
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
 
 eval $(dircolors ~/.dir_colors)
@@ -69,46 +57,38 @@ alias ga="git add -p"
 alias gb="git branch"
 alias gck="git checkout"
 alias gdi="git diff"
+alias gdic="git diff --cached"
 alias gci="git commit"
 alias gcia='git commit --amend --date="$(date -R)"'
 alias gst="git status"
+alias gf="git fetch"
+# git open modified
+alias gom='vim -p $(git diff --name-only)'
+# git open cached modified
+alias gocm='vim -p $(git diff --name-only --cached)'
+# git open last commit
+alias golc='vim -p $(git log -1 --name-only --format=)'
 
-# working faster with Mercurial
-alias hl="hg log --graph"
-alias hci="hg commit"
-alias gcia='git commit --amend --date="$(date -R)"'
-alias hlp="hg log --graph -p"
-alias hli="hg log --graph --style compact"
-alias hdi="hg diff"
-alias hst="hg summary"
+alias difflines="diff --unchanged-group-format='' --old-line-format='-%L' --new-line-format='+%L'"
 
-# working faster with google compute platform
-alias gcistart="gcloud compute instances start"
-alias gcistop="gcloud compute instances stop"
-alias gcs="gcloud compute ssh"
+source ~/bin/git-prompt.sh
+source ~/bin/git-completion.bash
+#export PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;91m\]\h\[\033[00m\] \[\033[01;93m\]\D{%a} \t\[\033[00m\] :\[\033[01;34m\]\w\[\033[00m\]]\[\033[36m\]`__git_ps1`\[\033[0m\]$ '
+export PS1='
+\[\033[01;93m\]\D{%a} \t\[\033[00m\] \[\033[01;4m\]<$?>\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\033[36m\]`__git_ps1`\[\033[0m\]
+${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;95m\]\h\[\033[00m\] $ '
 
-# working fast with go and coverage
-function gc() {
-    go test -coverprofile cover.out $*
-    [ $? -eq 0 ] && go tool cover -html=cover.out -o cover.html
-    [ $? -eq 0 ] && firefox cover.html
-    [ $? -eq 0 ] && sleep 2
-    rm -f cover.out cover.html
-}
-
-green='\033[1;32m'
-blue='\033[1;34m'
-NC='\033[0m'
-export PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;90m\]\D{%a} \t\[\033[00m\] :\[\033[01;34m\]\w\[\033[00m\]]\[\033[36m\]`__git_ps1`\[\033[0m\]$ '
-
-#alias make="make -j10"
-#alias make="make JOBS=10"
 
 # Avoid CTRL+S accidently freezing your shell
 #stty -ixon
 
-HISTSIZE=10000
+HISTSIZE=100000
 
 function rmd() {
   pandoc $1 | lynx -stdin
+}
+
+# grep -r for searching things in the project but skipping build and .git directory
+function gr() {
+    grep -nr --exclude=.coverage --exclude=cscope.* --exclude-dir=build --exclude-dir=.git "$*" .
 }
