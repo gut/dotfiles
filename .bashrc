@@ -18,6 +18,8 @@
 # alias mv='mv -i'
 
 
+eval $(dircolors ~/.dir_colors)
+
 # esse faz o ls ficar colorido e com classificação de por / qndo for dir
 alias ls="ls --color=tty --classify"
 alias d="ls --color=tty --classify"
