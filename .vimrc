@@ -178,15 +178,13 @@ let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "
 call togglebg#map("<F5>")
+set background=dark
+colorscheme solarized
 if &diff
-    colorscheme blue
     set cc=
 else
     syntax enable
-    set background=dark
-    "colorscheme solarized
-    colorscheme torte
-    let g:solarized_termcolors=256
+    "let g:solarized_termcolors=256
 endif
 
 "set guifont=Monaco:h14
