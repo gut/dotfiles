@@ -22,7 +22,10 @@ alias du="du -h"
 alias tmux="tmux -2"
 # abrir sessão, se já existente
 alias mytmux='[[ $(tmux list-sessions) ]] && tmux attach || tmux'
-
+# pip install yt-dlp
+function ytdl() {
+	yt-dlp -f ba -x -o '%(playlist_autonumber)02d %(title)s.%(ext)s' $*
+}
 
 # avoid hitting backspace and having ^H chars
 #stty erase ^H
