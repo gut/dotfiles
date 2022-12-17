@@ -74,8 +74,8 @@ alias golc='vim -p $(git log -1 --name-only --format=)'
 
 alias difflines="diff --unchanged-group-format='' --old-line-format='-%L' --new-line-format='+%L'"
 
-source ~/bin/git-prompt.sh
-source ~/bin/git-completion.bash
+#source ~/bin/git-prompt.sh
+#source ~/bin/git-completion.bash
 #export PS1='[${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\[\033[01;91m\]\h\[\033[00m\] \[\033[01;93m\]\D{%a} \t\[\033[00m\] :\[\033[01;34m\]\w\[\033[00m\]]\[\033[36m\]`__git_ps1`\[\033[0m\]$ '
 export PS1='
 \[\033[01;93m\]\D{%a} \t\[\033[00m\] \[\033[01;4m\]<$?>\[\033[00m\] \[\033[01;34m\]\w\[\033[00m\]\[\033[36m\]`__git_ps1`\[\033[0m\]
